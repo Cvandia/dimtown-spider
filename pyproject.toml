@@ -4,7 +4,7 @@ version = "0.0.1"
 description = "A spider for https://dimtown.com"
 authors = ["divandia <106718176+Cvandia@users.noreply.github.com>"]
 readme = "README.md"
-packages = [{ include = "dimtown_spider" }]
+packages = [{ include = "dimtown" }]
 
 [tool.poetry.dependencies]
 python = ">=3.9"
