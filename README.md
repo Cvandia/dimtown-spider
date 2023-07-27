@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="https://dimtown.com"><img src="https://cci1.dimtown.com/uploads/2022/05/20220506190018751.png" width="180" alt="Logo"></a>
+<a href="https://dimtown.com"><img src="./ico/ico.png" width="180" alt="Logo"></a>
 
 </div>
 
