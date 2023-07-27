@@ -1,6 +1,4 @@
-from utils import Spider
-import asyncio
-import httpx
+from .utils import Spider
 from bs4 import BeautifulSoup
 
 class AnimeAvatar(Spider):

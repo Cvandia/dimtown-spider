@@ -1,13 +1,4 @@
-from utils import Spider
-from bs4 import BeautifulSoup
-import httpx
-import asyncio
-try:
-    import ujson as json
-except ModuleNotFoundError:
-    import json
-import os
-import re
+from .utils import Spider
 
 class CosPlay(Spider):
     '''

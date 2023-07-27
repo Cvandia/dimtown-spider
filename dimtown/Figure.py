@@ -1,5 +1,4 @@
-from utils import Spider
-import asyncio
+from .utils import Spider
 
 class Figure(Spider):
     '''

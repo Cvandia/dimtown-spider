@@ -1,5 +1,5 @@
-from utils import Spider
-import asyncio
+from .utils import Spider
+
 class HanFu(Spider):
     '''
     `汉服`图片获取

@@ -1,5 +1,4 @@
-from AnimeAvatar import AnimeAvatar
-import asyncio
+from .AnimeAvatar import AnimeAvatar
 
 class MaleAvatar(AnimeAvatar):
     '''

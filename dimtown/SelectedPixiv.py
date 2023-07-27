@@ -1,7 +1,4 @@
-from utils import Spider
-from bs4 import BeautifulSoup
-import httpx
-import asyncio
+from .utils import Spider
 
 class SelectedPixiv(Spider):
     '''
