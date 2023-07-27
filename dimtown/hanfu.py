@@ -1,6 +1,9 @@
 from utils import Spider
 import asyncio
 class HanFu(Spider):
+    '''
+    `汉服`图片获取
+    '''
     def __init__(self) -> None:
         super().__init__()
         self.api_url = self.base_url + "hanfu"

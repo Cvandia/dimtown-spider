@@ -2,6 +2,9 @@ from AnimeAvatar import AnimeAvatar
 import asyncio
 
 class CoupleAvatar(AnimeAvatar):
+    '''
+    `情侣头像`获取
+    '''
     def __init__(self) -> None:
         super().__init__()
         self.api_url = self.base_url + "loverstx"

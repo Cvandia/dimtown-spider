@@ -4,6 +4,9 @@ import httpx
 from bs4 import BeautifulSoup
 
 class AnimeAvatar(Spider):
+    '''
+    `漫画头像`获取
+    '''
     def __init__(self) -> None:
         super().__init__()
         self.api_url = self.base_url + "comictx"

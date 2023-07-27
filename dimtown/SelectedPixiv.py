@@ -4,7 +4,9 @@ import httpx
 import asyncio
 
 class SelectedPixiv(Spider):
-        
+    '''
+    `精选Pixiv`获取
+    '''
     def __init__(self) -> None:
         super().__init__()
         self.api_url = self.base_url + "pzmt"

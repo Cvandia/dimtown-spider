@@ -7,10 +7,10 @@ except ModuleNotFoundError:
 from bs4 import BeautifulSoup
 
 class Spider:
+    '''
+    爬虫基类
+    '''
     def __init__(self) -> None:
-        '''
-        初始化
-        '''
         self.base_url = "https://dimtown.com/"
         self.api_url = None
         self.url = None

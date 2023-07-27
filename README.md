@@ -20,13 +20,28 @@ _⭐基于`httpx`的为[次元小镇](https://dimtown.com)的异步爬虫⭐_
 
 - 本项目采用 `Apache License 2.0` 开源协议。在使用这个项目之前，请确保你已经**仔细阅读并理解了协议的相关条款**。本项目**严禁**用于任何**商业用途**，并且只能用于学习和研究。如果在使用本项目的过程中产生任何问题或结果，**我们不承担任何责任**。同时，我们鼓励用户为这个项目的改进和发展提供反馈和建议。
 
+## 🦈 安装
+
+<details>
+<summary>安装</summary>
+ 
+ pip 安装
+
+ `pip install dimtown-spider -U`
+ 
+ poetry 安装
+
+ `poetry add dimtown-spider`
+
+</details>
+
 ## 🐟 使用
 
 > 可见以下示例：
 
 ```python
 import asyncio
-from dimtown_spider import AnimeAvatar
+from dimtown import AnimeAvatar
 
 if __name__ == "__main__":
     aa = AnimeAvatar()

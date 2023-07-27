@@ -10,7 +10,9 @@ import os
 import re
 
 class CosPlay(Spider):
-
+    '''
+    `CosPlay`获取
+    '''
     def __init__(self) -> None:
         super().__init__()
         self.api_url = self.base_url + "cosplay"

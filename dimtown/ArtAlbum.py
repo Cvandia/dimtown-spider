@@ -4,7 +4,9 @@ import httpx
 import asyncio
 
 class ArtAlbum(Spider):
-    
+    '''
+    `画册`获取
+    '''
     def __init__(self) -> None:
         super().__init__()
         self.api_url = self.base_url + "tujihuace"

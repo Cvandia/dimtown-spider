@@ -10,7 +10,9 @@ import os
 import re
 
 class PhonePic(Spider):
-
+    '''
+    `手机壁纸`获取
+    '''
     def __init__(self) -> None:
         super().__init__()
         self.api_url = self.base_url + "sjbz"

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dimtown-spider"
-version = "0.0.2"
+version = "0.0.3"
 description = "A spider for https://dimtown.com"
 authors = ["divandia <106718176+Cvandia@users.noreply.github.com>"]
 readme = "README.md"

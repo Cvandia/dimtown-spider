@@ -4,7 +4,9 @@ import httpx
 import asyncio
 
 class Lolita(Spider):
-            
+    '''
+    `Lolita图片`获取
+    '''
     def __init__(self) -> None:
         super().__init__()
         self.api_url = self.base_url + "lolita"

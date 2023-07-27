@@ -2,6 +2,9 @@ from AnimeAvatar import AnimeAvatar
 import asyncio
 
 class FemaleAvatar(AnimeAvatar):
+    '''
+    `女生头像`获取
+    '''
     def __init__(self) -> None:
         super().__init__()
         self.api_url = self.base_url + "lolitx"

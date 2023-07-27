@@ -2,6 +2,9 @@ from utils import Spider
 import asyncio
 
 class Figure(Spider):
+    '''
+    `手办`图片获取
+    '''
     def __init__(self) -> None:
         super().__init__()
         self.api_url = self.base_url + "shouban"
