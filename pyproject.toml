@@ -4,10 +4,14 @@ version = "0.0.1"
 description = "A spider for https://dimtown.com"
 authors = ["divandia <106718176+Cvandia@users.noreply.github.com>"]
 readme = "README.md"
-packages = [{include = "dimtown_spider"}]
+packages = [{ include = "dimtown_spider" }]
 
 [tool.poetry.dependencies]
-python = ">=3.10"
+python = ">=3.9"
+httpx = ">=0.23.0"
+ujson = ">=5.4.0"
+bs4 = "^3.2.2"
+
 
 
 [build-system]
