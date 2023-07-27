@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dimtown-spider"
-version = "0.0.1"
+version = "0.0.2"
 description = "A spider for https://dimtown.com"
 authors = ["divandia <106718176+Cvandia@users.noreply.github.com>"]
 readme = "README.md"
@@ -10,8 +10,6 @@ packages = [{ include = "dimtown_spider" }]
 python = ">=3.9"
 httpx = ">=0.23.0"
 ujson = ">=5.4.0"
-bs4 = "^3.2.2"
-
 
 
 [build-system]
