@@ -10,7 +10,7 @@ class Search(AnimeAvatar):
     def __init__(self, key_words) -> None:
         super().__init__()
         self.key_words = key_words
-        self.api_url = self.base_url + f"?s={key_words}"
+        self.api_url = self.base_url
 
     async def _save_html(self, file_name: str) -> bool:
         """
@@ -34,7 +34,19 @@ class Search(AnimeAvatar):
         返回:
         - list: 搜索列表
         """
-        return await super().get_img_list(page)
+        url = self.api_url + "/page/" + str(page)
+        try:
+            resp = await self._get_resp(url, params={"s": self.key_words})
+        except Exception:
+            raise Exception('page not found')
+        soup = BeautifulSoup(resp.text, "html.parser")
+        ul =  soup.find("ul", class_="update_area_lists cl")
+        li_list = ul.find_all("li")
+        phonepic_list = []
+        for li in li_list:
+            a = li.find("a")
+            phonepic_list.append(a["href"])
+        return phonepic_list
 
     async def get_search_title(self, page: int = 1) -> list:
         """
@@ -46,7 +58,19 @@ class Search(AnimeAvatar):
         返回:
         - list: 搜索标题
         """
-        return await super().get_title_list(page)
+        url = self.api_url + "/page/" + str(page)
+        try:
+            resp = await self._get_resp(url, params={"s": self.key_words})
+        except Exception:
+            raise Exception('page not found')
+        soup = BeautifulSoup(resp.text, "html.parser")
+        ul =  soup.find("ul", class_="update_area_lists cl")
+        li_list = ul.find_all("li")
+        phonepic_list = []
+        for li in li_list:
+            a = li.find("a")
+            phonepic_list.append(a["title"])
+        return phonepic_list
 
     async def get_search_img(self, url: str) -> list:
         """
