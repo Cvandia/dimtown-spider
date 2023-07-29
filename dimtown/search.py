@@ -10,19 +10,7 @@ class Search(AnimeAvatar):
     def __init__(self, key_words) -> None:
         super().__init__()
         self.key_words = key_words
-        self.api_url = self.base_url
-
-    async def _save_html(self, file_name: str) -> bool:
-        """
-        保存网页
-
-        参数:
-        - file_name: 文件名
-
-        返回:
-        - bool: 是否保存成功
-        """
-        await super()._save_html(self.api_url, file_name)
+        self.api_url = self.base_url + "/page/1" + "?s=" + self.key_words
 
     async def get_search_list(self, page: int = 1) -> list:
         """
@@ -34,7 +22,7 @@ class Search(AnimeAvatar):
         返回:
         - list: 搜索列表
         """
-        url = self.api_url + "/page/" + str(page)
+        url = self.api_url.replace("1", str(page))
         try:
             resp = await self._get_resp(url, params={"s": self.key_words})
         except Exception:
@@ -58,7 +46,7 @@ class Search(AnimeAvatar):
         返回:
         - list: 搜索标题
         """
-        url = self.api_url + "/page/" + str(page)
+        url = self.api_url.replace("1", str(page))
         try:
             resp = await self._get_resp(url, params={"s": self.key_words})
         except Exception:
@@ -90,4 +78,4 @@ class Search(AnimeAvatar):
             tags = a.get_text()
             if "头像" in tags:
                 return await super().get_animeavatar_img(url)
-        return await super().get_img_list(url)
+        return await super().get_img_url(url)
