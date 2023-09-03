@@ -47,12 +47,12 @@ if __name__ == "__main__":
     aa = AnimeAvatar()
     loop = asyncio.get_event_loop()
     # 获取url列表
-    list_ = loop.run_until_complete(aa.get_animeavatar_list())
+    list_ = loop.run_until_complete(aa.get_img_list())
     # 获取title列表
-    title_list = loop.run_until_complete(aa.get_animeavatar_title())
+    title_list = loop.run_until_complete(aa.get_title_list())
     print(title_list)
     # 获取url列表下所有图片
-    pic_list = loop.run_until_complete(aa.get_animeavatar_img(list_[0]))
+    pic_list = loop.run_until_complete(aa.get_img_url(list_[0]))
     print(pic_list)
 
 ```
