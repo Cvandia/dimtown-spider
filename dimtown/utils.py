@@ -1,3 +1,4 @@
+from typing import Any
 import httpx
 
 try:
@@ -149,3 +150,128 @@ class Spider:
                 img_list.append(img["src"])
         return img_list
     
+class SelectedPixiv(Spider):
+    def __init__(self) -> None:
+        super().__init__()
+        self.api_url = self.base_url + "pzmt"
+
+class SelectedIllustrations(Spider):
+    def __init__(self) -> None:
+        super().__init__()
+        self.api_url = self.base_url + "jxmt"
+    
+class AnimeAvatar(Spider):
+    def __init__(self) -> None:
+        super().__init__()
+        self.api_url = self.base_url + "comictx"
+    
+    async def get_img_url(self, url: str) -> list:
+        resp = await self._get_resp(url)
+        soup = BeautifulSoup(resp.text, "html.parser")
+        div = soup.find("div", class_="content")
+        img_list = []
+        for img in div.find_all("img"):
+            img_list.append(img["src"])
+        return img_list
+    
+class ArtAlbum(Spider):
+    def __init__(self) -> None:
+        super().__init__()
+        self.api_url = self.base_url + "tujihuace"
+
+class Cosplay(Spider):
+    def __init__(self) -> None:
+        super().__init__()
+        self.api_url = self.base_url + "cosplay"
+
+class CoupleAvatar(AnimeAvatar):
+    def __init__(self) -> None:
+        super().__init__()
+        self.api_url = self.base_url + "loverstx"
+
+class FemaleAvatar(AnimeAvatar):
+    def __init__(self) -> None:
+        super().__init__()
+        self.api_url = self.base_url + "lolitx"
+
+class Figure(Spider):
+    def __init__(self) -> None:
+        super().__init__()
+        self.api_url = self.base_url + "shouban"
+
+class Hanfu(Spider):
+    def __init__(self) -> None:
+        super().__init__()
+        self.api_url = self.base_url + "hanfu"
+
+class JK(Spider):
+    def __init__(self) -> None:
+        super().__init__()
+        self.api_url = self.base_url + "jk"
+
+class LoliTa(Spider):
+    def __init__(self) -> None:
+        super().__init__()
+        self.api_url = self.base_url + "lolita"
+
+class MaleAvatar(AnimeAvatar):
+    def __init__(self) -> None:
+        super().__init__()
+        self.api_url = self.base_url + "mantx"
+
+class PcPic(Spider):
+    def __init__(self) -> None:
+        super().__init__()
+        self.api_url = self.base_url + "bz"
+
+class PhonePic(Spider):
+    def __init__(self) -> None:
+        super().__init__()
+        self.api_url = self.base_url + "sjbz"
+
+class Search(AnimeAvatar):
+    def __init__(self, key_words) -> None:
+        super().__init__()
+        self.key_words = key_words
+        self.api_url = self.base_url + "/page/1" + "?s=" + self.key_words
+    
+    async def get_img_list(self, page: int = 1) -> list:
+        url = self.api_url.replace("1", str(page))
+        try:
+            resp = await self._get_resp(url, params={"s": self.key_words})
+        except Exception:
+            raise Exception('page not found')
+        soup = BeautifulSoup(resp.text, "html.parser")
+        ul =  soup.find("ul", class_="update_area_lists cl")
+        li_list = ul.find_all("li")
+        phonepic_list = []
+        for li in li_list:
+            a = li.find("a")
+            phonepic_list.append(a["href"])
+        return phonepic_list
+    
+    async def get_title_list(self, page: int = 1) -> list:
+        url = self.api_url.replace("1", str(page))
+        try:
+            resp = await self._get_resp(url, params={"s": self.key_words})
+        except Exception:
+            raise Exception('page not found')
+        soup = BeautifulSoup(resp.text, "html.parser")
+        ul =  soup.find("ul", class_="update_area_lists cl")
+        li_list = ul.find_all("li")
+        phonepic_list = []
+        for li in li_list:
+            a = li.find("a")
+            phonepic_list.append(a["title"])
+        return phonepic_list
+
+    async def get_img_url(self, url: str) -> list:
+        resp = await self._get_resp(url)
+        soup = BeautifulSoup(resp, "html.parser")
+        div = soup.find("div", class_="kz-post_tags_list")
+        a_all = div.find_all("a")
+        for a in a_all:
+            tags = a.get_text()
+            if "头像" in tags:
+                return await super().get_img_url(url)
+        return await super(AnimeAvatar,self).get_img_url(url)
