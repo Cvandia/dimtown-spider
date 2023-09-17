@@ -40,21 +40,25 @@ _⭐基于`httpx`的为[次元小镇](https://dimtown.com)的异步爬虫⭐_
 > 可见以下示例：
 
 ```python
+# 测试程序
+
+from dimtown import Search, ReturnImage
 import asyncio
-from dimtown import AnimeAvatar
 
-if __name__ == "__main__":
-    aa = AnimeAvatar()
-    loop = asyncio.get_event_loop()
-    # 获取url列表
-    list_ = loop.run_until_complete(aa.get_img_list())
-    # 获取title列表
-    title_list = loop.run_until_complete(aa.get_title_list())
-    print(title_list)
-    # 获取url列表下所有图片
-    pic_list = loop.run_until_complete(aa.get_img_url(list_[0]))
-    print(pic_list)
+sc = Search("原神")
+loop = asyncio.get_event_loop()
+list_ = loop.run_until_complete(sc.get_img_list())
+img_list = loop.run_until_complete(sc.get_img_url(list_[0]))
+async def show_image(img_list: ReturnImage):
+    for img in img_list:
+        print(img)
+    
+    # 异步迭代器，显示图片
+    async for img in img_list:
+        img.show()
+        await asyncio.sleep(1)
 
+loop.run_until_complete(show_image(img_list))
 ```
 
 ## 🐖 注意事项
