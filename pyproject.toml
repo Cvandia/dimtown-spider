@@ -10,6 +10,7 @@ packages = [{ include = "dimtown" }]
 python = ">=3.9"
 httpx = ">=0.23.0"
 ujson = ">=5.4.0"
+Pillow = ">=8.3.2"
 
 
 [build-system]

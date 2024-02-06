@@ -7,8 +7,7 @@ except ModuleNotFoundError:
     import json
 from bs4 import BeautifulSoup, Tag
 import PIL.Image as Image
-from io import BytesIO
-from typing import AsyncGenerator
+from typing import AsyncGenerator, Iterator
 
 
 class ReturnImage(list, Image.Image):
@@ -24,11 +23,14 @@ class ReturnImage(list, Image.Image):
             async with httpx.AsyncClient() as client:
                 for img in self.img_list:
                     resp = await client.get(img)
-                    img = Image.open(BytesIO(resp.content))
+                    img = Image.open(resp.content)
                     yield img
         except (httpx.ConnectError, httpx.ConnectTimeout, httpx.ReadTimeout):
             raise Exception("网络连接错误或超时")
-        
+    
+    def __iter__(self) -> Iterator[str]:
+        return iter(self.img_list)
+
 
 class Spider:
     """
@@ -361,3 +363,4 @@ class Search(AnimeAvatar):
             return await super(AnimeAvatar, self).get_img_url(url)
         else:
             raise Exception("page not found")
+        
