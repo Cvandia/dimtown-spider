@@ -1,18 +1,23 @@
-[tool.poetry]
+[project]
 name = "dimtown-spider"
-version = "0.1.1"
-description = "A spider for https://dimtown.com"
-authors = ["divandia <106718176+Cvandia@users.noreply.github.com>"]
+version = "0.1.2"
+description = "A spider"
+authors = [
+    {name = "Cvandia",email = "106718176+Cvandia@users.noreply.github.com"},
+]
+dependencies = ["httpx>=0.27.2", "bs4>=0.0.2"]
+requires-python = ">=3.9,<4.0"
 readme = "README.md"
-packages = [{ include = "dimtown" }]
+license = {text = "Apache License 2.0"}
 
-[tool.poetry.dependencies]
-python = ">=3.9"
-httpx = ">=0.23.0"
-ujson = ">=5.4.0"
-Pillow = ">=8.3.2"
+[tool.pdm]
+distribution = true
 
-
+[tool.pdm.build]
+includes = ["dimtown"]
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[dependency-groups]
+dev = ["ruff>=0.8.0", "pre-commit>=4.0.1"]

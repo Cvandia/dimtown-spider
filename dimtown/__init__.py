@@ -1,4 +1,4 @@
-from .utils import (
+from .spider import (
     AnimeAvatar,
     ArtAlbum,
     Cosplay,
@@ -14,7 +14,6 @@ from .utils import (
     SelectedIllustrations,
     SelectedPixiv,
     Search,
-    ReturnImage
 )
 
 __all__ = [
@@ -33,7 +32,6 @@ __all__ = [
     "SelectedIllustrations",
     "SelectedPixiv",
     "Search",
-    "ReturnImage",
 ]
 __title__ = "dimtown"
 __description__ = "A Spider for https://dimtown.com"

@@ -24,11 +24,11 @@ _⭐基于`httpx`的为[次元小镇](https://dimtown.com)的异步爬虫⭐_
 
 <details>
 <summary>安装</summary>
- 
+
  pip 安装
 
  `pip install dimtown-spider -U`
- 
+
  poetry 安装
 
  `poetry add dimtown-spider`
@@ -52,7 +52,7 @@ img_list = loop.run_until_complete(sc.get_img_url(list_[0]))
 async def show_image(img_list: ReturnImage):
     for img in img_list:
         print(img)
-    
+
     # 异步迭代器，显示图片
     async for img in img_list:
         img.show()
