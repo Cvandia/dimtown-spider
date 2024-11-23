@@ -25,13 +25,28 @@ _⭐基于`httpx`的为[次元小镇](https://dimtown.com)的异步爬虫⭐_
 <details>
 <summary>安装</summary>
 
- pip 安装
+- pip 安装
 
- `pip install dimtown-spider -U`
+ ```bash
+ pip install dimtown-spider -U
+ ```
 
- poetry 安装
+- poetry 安装
 
- `poetry add dimtown-spider`
+ ```bash
+ poetry add dimtown-spider
+ ```
+
+- pdm 安装
+ ```bash
+ pdm add dimtown-spider
+ ```
+
+- 手动安装
+ ```bash
+ git clone https://github.com/Cvandia/dimtown-spider.git
+ ```
+
 
 </details>
 
@@ -42,23 +57,30 @@ _⭐基于`httpx`的为[次元小镇](https://dimtown.com)的异步爬虫⭐_
 ```python
 # 测试程序
 
-from dimtown import Search, ReturnImage
+from dimtown import Cosplay
 import asyncio
 
-sc = Search("原神")
-loop = asyncio.get_event_loop()
-list_ = loop.run_until_complete(sc.get_img_list())
-img_list = loop.run_until_complete(sc.get_img_url(list_[0]))
-async def show_image(img_list: ReturnImage):
-    for img in img_list:
-        print(img)
+# keyword = input("请输入关键词：\n")
+# sc = Search(keyword)
+cs = Cosplay()
 
-    # 异步迭代器，显示图片
-    async for img in img_list:
-        img.show()
-        await asyncio.sleep(1)
 
-loop.run_until_complete(show_image(img_list))
+async def main():
+    # 获取文章链接列表
+    list_ = await cs.get_article_urls()
+    print(f"文章链接列表：{list_[0:5]}")
+    # 获取图片链接
+    img_list = await cs.get_img_url(list_[0])
+    print(f"图片链接：{img_list[0:5]}")
+    # articles = await cs.get_articles(page=1)
+    # for article in articles:
+    #     print(article.title)
+    #     print(article.url)
+    #     print(article.img_urls)
+    #     print("#" * 50)
+
+
+asyncio.run(main())
 ```
 
 ## 🐖 注意事项
