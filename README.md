@@ -1,10 +1,7 @@
 <div align="center">
 
-<a href="https://dimtown.com"><img src="./ico/ico.png" width="180" alt="Logo"></a>
-
-</div>
-
-<div align="center">
+<a href="https://dimtown.com">
+<img src="./ico/ico.png" width="180" alt="Logo"></a>
 
 # dimtown-spider
 
@@ -13,8 +10,20 @@ _⭐基于`httpx`的为[次元小镇](https://dimtown.com)的异步爬虫⭐_
 </div>
 
 <div align="center">
-    <a href="https://www.python.org/downloads/release/python-390/"><img src="https://img.shields.io/badge/python-3.9+-blue"></a><a href=""><img src="https://img.shields.io/badge/QQ-1141538825-yellow"></a><a href="https://github.com/Cvandia/dimtown-spider/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-Apache License 2.0-blue"></a><a href="https://pypi.org/project/httpx/"><img src="https://img.shields.io/badge/httpx-0.23+-gree"></a>
+    <a href="https://www.python.org/downloads/release/python-390/">
+        <img src="https://img.shields.io/badge/python-3.9+-blue"></a>
+    <a href="">
+        <img src="https://img.shields.io/badge/QQ-1141538825-yellow"></a>
+    <a href="https://github.com/Cvandia/dimtown-spider/blob/main/LICENSE">
+        <img src="https://img.shields.io/badge/license-Apache License 2.0-blue"></a>
+    <a href="https://pypi.org/project/httpx/">
+        <img src="https://img.shields.io/badge/httpx-0.23+-gree"></a>
+    <a href="https://github.com/Cvandia/dimtown-spider/actions/workflows/ruff-check.yml">
+        <img src="https://github.com/Cvandia/dimtown-spider/actions/workflows/ruff-check.yml/badge.svg">
+    </a>
 </div>
+
+---
 
 ## ⭐ 介绍
 
