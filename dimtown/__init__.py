@@ -1,4 +1,5 @@
 from .spider import (
+    JK,
     AnimeAvatar,
     ArtAlbum,
     Cosplay,
@@ -6,17 +7,17 @@ from .spider import (
     FemaleAvatar,
     Figure,
     Hanfu,
-    JK,
     LoliTa,
     MaleAvatar,
     PcPic,
     PhonePic,
+    Search,
     SelectedIllustrations,
     SelectedPixiv,
-    Search,
 )
 
 __all__ = [
+    "JK",
     "AnimeAvatar",
     "ArtAlbum",
     "Cosplay",
@@ -24,14 +25,13 @@ __all__ = [
     "FemaleAvatar",
     "Figure",
     "Hanfu",
-    "JK",
     "LoliTa",
     "MaleAvatar",
     "PcPic",
     "PhonePic",
+    "Search",
     "SelectedIllustrations",
     "SelectedPixiv",
-    "Search",
 ]
 __title__ = "dimtown"
 __description__ = "A Spider for https://dimtown.com"
