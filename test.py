@@ -1,7 +1,8 @@
 # 测试程序
 
-from dimtown import Cosplay
 import asyncio
+
+from dimtown import Cosplay
 
 # keyword = input("请输入关键词：\n")
 # sc = Search(keyword)
