@@ -1,7 +1,8 @@
-from bs4 import BeautifulSoup, Tag
-from dataclasses import dataclass
-import httpx
 import asyncio
+from dataclasses import dataclass
+
+import httpx
+from bs4 import BeautifulSoup, Tag
 
 
 @dataclass
@@ -20,8 +21,6 @@ class Article:
 
 class RequestError(Exception):
     """请求错误"""
-
-    pass
 
 
 class HandleFileError(Exception):
